@@ -30,38 +30,7 @@ function codeship() {
     codeship_prefix=""
   fi
 
-
-  if [[ $action == "new" ]]; then
-    echo "Opening new issue"
-    open_command "${codeship_url}"
-  elif [[ "$action" == "assigned" || "$action" == "reported" ]]; then
-    _codeship_query $@
-  elif [[ "$action" == "dashboard" ]]; then
-    echo "Opening dashboard"
-    open_command "${codeship_url}"
-  elif [[ "$action" == "dumpconfig" ]]; then
-    echo "CODESHIP_URL=$codeship_url"
-    echo "CODESHIP_PREFIX=$codeship_prefix"
-    echo "CODESHIP_NAME=$CODESHIP_NAME"
-    echo "CODESHIP_RAPID_BOARD=$CODESHIP_RAPID_BOARD"
-    echo "CODESHIP_DEFAULT_ACTION=$CODESHIP_DEFAULT_ACTION"
-  else
-    # Anything that doesn't match a special action is considered an issue name
-    local issue_arg=$action
-    local issue="${codeship_prefix}${issue_arg}"
-    local url_fragment=''
-    if [[ "$2" == "m" ]]; then
-      url_fragment="#add-comment"
-      echo "Add comment to issue #$issue"
-    else
-      echo "Opening issue #$issue"
-    fi
-    if [[ "$CODESHIP_RAPID_BOARD" == "true" ]]; then
-      open_command "${codeship_url}"
-    else
-      open_command "${codeship_url}"
-    fi
-  fi
+  open_command "${codeship_url}"
 }
 
 function _codeship_url_help() {
