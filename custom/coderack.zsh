@@ -16,8 +16,8 @@ alias pmusic='open /Applications/Amazon\ Music.app'
 alias weather='chrome-cli open http://forecast.io/#/f/42.7195,-70.9925'
 alias git='hub'
 killRuby() {
-	killall -9 ruby
-	pkill puma
+	killall -v -SIGKILL -m ruby.
+	killall -v -SIGKILL -m puma.
 }
 
 alias killr=killRuby
