@@ -46,6 +46,21 @@ alias sa="cd ~/code/smartaide"
 alias hobson="cd ~/code/hobson-app"
 alias analyze="git diff --name-only master | xargs codeclimate analyze"
 
+#epion
+# Moving around
+alias checkin="cd ~/dev/epion/patient-check-in"
+alias epion="cd ~/dev/epion"
+alias extension="cd ~/dev/epion/insurance-chrome-extension"
+alias payment="cd ~/dev/epion/athena-payment-collector"
+alias dotfiles="cd ~/dev/epion/dotfiles"
+alias docs="cd ~/dev/epion/product-documentation"
+alias laptop="cd ~/dev/epion/laptop"
+alias dev="cd ~/dev"
+alias desk="cd ~/Desktop"
+
+alias extension_server="(export RUN_SERVER_FOR_CHROME_EXTENSION=true; bundle exec rake assets:precompile && bundle exec thin start --ssl -p 7000)"
+alias rspec_extension="rspec -P 'spec/models/insurance*_spec.rb, spec/controllers/insurance_extension/*_spec.rb, spec/features/insurance_extension/*_spec.rb, spec/i18n_spec.rb'"
+
 function al
 {
    alias | grep $*
